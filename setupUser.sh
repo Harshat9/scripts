@@ -39,6 +39,26 @@ elif [ $1 == "ubuntu" ];then
         exp "/usr/bin/expect"
    fi
 
+elif [ $1 == "linuxmint" ];then
+
+   if [ ! -f /usr/bin/expect ] && [ ! -f /bin/expect ];then
+        apt-get update
+        apt install -y expect
+        exp "/usr/bin/expect"
+   else
+        exp "/usr/bin/expect"
+   fi
+
+elif [ $1 == "kali" ];then
+
+   if [ ! -f /usr/bin/expect ] && [ ! -f /bin/expect ];then
+        apt-get update
+        apt install -y expect
+        exp "/usr/bin/expect"
+   else
+        exp "/usr/bin/expect"
+   fi
+
 elif [ $1 == "amzn" ];then
 
    echo $1
@@ -107,7 +127,7 @@ update_conf()
 
 USER="devops"
 GROUP="devops"
-passw="today@1234"
+passw="tod@123"
 
 if [ -f /etc/os-release ];then
    osname=`grep ID /etc/os-release | egrep -v 'VERSION|LIKE|VARIANT' | cut -d'=' -f2 | sed -e 's/"//' -e 's/"//'`
@@ -118,7 +138,7 @@ else
 fi
 
 case "$osname" in
-  sles|amzn|ubuntu|centos)
+  sles|amzn|ubuntu|centos|linuxmint|kali)
      userdel -r $USER 
      groupdel $GROUP
      sleep 3

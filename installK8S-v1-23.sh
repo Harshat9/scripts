@@ -112,6 +112,10 @@ if [ -f /etc/os-release ];then
    echo $osname
    if [ $osname == "ubuntu" ];then
        install_ubuntu
+   elif [ $osname == "linuxmint" ];then
+       install_ubuntu
+   elif [ $osname == "kali" ];then
+       install_ubuntu
    elif [ $osname == "amzn" ];then
        install_centos
    elif [ $osname == "centos" ];then

@@ -65,6 +65,8 @@ if [ -f /etc/os-release ];then
    echo $osname
    if [ $osname == "ubuntu" ];then
        install_ubuntu
+   elif [ $osname == "kali" ];then
+       install_ubuntu
    elif [ $osname == "linuxmint" ];then
        install_linuxmint
    elif [ $osname == "amzn" ];then
